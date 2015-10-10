@@ -3,6 +3,7 @@ package models;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 /**
@@ -16,6 +17,8 @@ public class Usuario extends EntidadIdAutoLongAltKey{
     public String password;
 
     public String email;
+    @ManyToOne
+    public Persona persona;
 
     public String getUsuario() {
         return usuario;

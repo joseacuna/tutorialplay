@@ -3,8 +3,7 @@ package models;
 import play.db.jpa.Model;
 /**/
 
-import javax.persistence.Entity;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -21,7 +20,17 @@ public class Persona extends EntidadIdAutoLongAltKey {
     public String direccion;
     public String telefono;
     public String celular;
+    @Temporal(TemporalType.TIMESTAMP)
     public Date fechaNacimiento;
+
+    @ManyToOne
+    public Comuna comuna;
+    @ManyToOne
+    public Provincia provincia;
+    @ManyToOne
+    public Region region;
+    @ManyToOne
+    public Pais pais;
 
     public String getNombres() {
         return nombres;
