@@ -8,5 +8,5 @@ import javax.persistence.Entity;
  * Created by slenderman on 10-10-15.
  */
 @Entity
-public class Pais  extends Model{
+public class Comuna extends Model{
 }
