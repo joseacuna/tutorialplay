@@ -4,13 +4,15 @@ import play.db.jpa.Model;
 /**/
 
 import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
 import java.util.Date;
 
 /**
  * Created by slenderman on 10-10-15.
  */
 @Entity
-public class Persona extends Model {
+@SequenceGenerator(name = "idAutoGen", sequenceName = "seq_persona")
+public class Persona extends EntidadIdAutoLongAltKey {
     public String nombres;
     public String apellidoPaterno;
     public String apellidoMaterno;

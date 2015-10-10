@@ -3,12 +3,14 @@ package models;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
 
 /**
  * Created by slenderman on 10-10-15.
  */
 @Entity
-public class Usuario extends Model{
+@SequenceGenerator(name = "idAutoGen", sequenceName = "seq_usuario")
+public class Usuario extends EntidadIdAutoLongAltKey{
     public String usuario;
 
     public String password;
