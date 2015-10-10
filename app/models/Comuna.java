@@ -9,4 +9,13 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Comuna extends Model{
+    public String nombre;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }
