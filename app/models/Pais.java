@@ -1,8 +1,10 @@
 package models;
 
+import play.db.jpa.JPA;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
+import java.util.List;
 
 /**
  * Created by slenderman on 10-10-15.
@@ -57,5 +59,10 @@ public class Pais  extends Model{
 
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
+    }
+
+    public static List<Pais> findAllPais() {
+        List<Pais> allPaises = JPA.em().createQuery("select p FROM Pais p").getResultList();
+        return allPaises;
     }
 }
