@@ -22,7 +22,7 @@
             <td>${persona.nombreCompleto}</td>
             <td>
 				<a href="#">borrar</a><br/>
-                <a href="#">editar</a>
+                <a href="@{Application.formularioEditarPersona(persona.altKey)}">editar</a>
 			</td>
         </tr>
 		#{/list}

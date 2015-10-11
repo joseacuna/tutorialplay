@@ -19,6 +19,11 @@ public class Application extends Controller {
 
         render(paises);}
 
+    public static void formularioEditarPersona(String altKey){
+        Persona persona =Persona.findPersonaByAltKey(altKey);
+        render(persona);
+    }
+
     public static void getRegiones(Long id_pais){
         List<Region> regiones = Region.findAllRegionesByIdPais(id_pais);
         renderJSON(regiones);

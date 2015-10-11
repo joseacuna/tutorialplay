@@ -1,10 +1,12 @@
 package models;
 
+import play.db.jpa.JPA;
 import play.db.jpa.Model;
 /**/
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by slenderman on 10-10-15.
@@ -106,5 +108,17 @@ public class Persona extends EntidadIdAutoLongAltKey {
 
     public String getNombreCompleto(){
         return nombres+' '+apellidoPaterno+' '+apellidoMaterno;
+    }
+
+
+    public static Persona findPersonaByAltKey(String altKey) {
+        try{
+            Persona persona= JPA.em().createQuery("select pr FROM Persona pr where pr.altKey=?1",Persona.class).setParameter(1,altKey).getSingleResult();
+            return persona;
+        }catch (NoResultException e){
+            return null;
+        }
+
+
     }
 }

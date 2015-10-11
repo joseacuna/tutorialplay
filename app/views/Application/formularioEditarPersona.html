@@ -1,0 +1,92 @@
+#{extends 'main.html'/}
+<div class="container">
+    <form action="@{Application.guardarPersona()}" method="post" role="form">
+        <legend><h1>Editar Persona</h1></legend>
+
+        <div class="form-group col-lg-3">
+            <label for="rut">RUT</label>
+            <input type="text" class="form-control" name="persona.rut" value="${persona.rut}" id="rut" placeholder="12.345.678-9">
+        </div>
+
+        <div class="form-group col-lg-9">
+            <label for="nombres">Nombres</label>
+            <input type="text" class="form-control" name="persona.nombres" value="${persona.nombres}"id="nombres" placeholder="">
+        </div>
+        <div class="form-group col-lg-6">
+            <label for="apellidoPaterno">Apellido Paterno</label>
+            <input type="text" class="form-control" name="persona.apellidoPaterno" value="${persona.apellidoPaterno}" id="apellidoPaterno" placeholder="">
+        </div>
+        <div class="form-group col-lg-6">
+            <label for="apellidoMaterno">Apellido Materno</label>
+            <input type="text" class="form-control" name="persona.apellidoMaterno" id="persona.apellidoMaterno" value="${persona.apellidoMaterno}" placeholder="">
+        </div>
+
+        <div class="form-group col-lg-6">
+
+            <label for="genero">Genero</label>
+            <select name="persona.genero" id="genero" class="form-control">
+                <option value=""></option>
+                <option value="0" ${persona.genero == 0 ? 'checked':''}>Masculino</option>
+                <option value="1" ${persona.genero == 1 ? 'checked':''}> -- Femenino -- </option>
+            </select>
+
+        </div>
+
+        <div class="form-group col-lg-6">
+            <label for="fechaNacimiento" class="control-label">FechaNacimiento</label>
+
+
+            <input type="date" class="form-control" id="fechaNacimiento" name="persona.fechaNacimiento" value="${persona.fechaNacimiento}" placeholder="FechaNacimiento">
+
+        </div>
+
+        <div class="form-group col-lg-4">
+            <label for="pais">Pais</label>
+            <select name="persona.pais" id="pais" class="form-control">
+                <option value="">Seleccione..</option>
+            #{list items:paises,as:'p'}
+                <option value="${p.id}" ${persona.pais.id == p.id ? 'selected':''}>${p.nombre} </option>
+            #{/list}
+
+            </select>
+        </div>
+        <div class="form-group col-lg-4">
+            <label for="region">Region</label>
+            <select name="persona.region" id="region" class="form-control">
+            </select>
+        </div>
+        <div class="form-group col-lg-4">
+            <label for="provincia" >Provincia</label>
+            <select name="persona.provincia" id="provincia" class="form-control">
+
+            </select>
+        </div>
+        <div class="form-group col-lg-4">
+            <label for="comuna" >Comuna</label>
+            <select name="persona.comuna" id="comuna" class="form-control">
+
+            </select>
+        </div>
+
+        <div class="form-group col-lg-8">
+            <label for="direccion">Direccion</label>
+            <input type="text" class="form-control" name="persona.direccion" id="direccion" placeholder="">
+        </div>
+        <div class="form-group col-lg-6">
+            <label for="telefono">Telefono</label>
+            <input type="text" class="form-control" name="persona.telefono" value="${persona.celular}" id="telefono" placeholder="">
+        </div>
+        <div class="form-group col-lg-6">
+            <label for="celular">Celular</label>
+            <input type="text" class="form-control" name="persona.celular" value="${persona.celular}" id="celular" placeholder="">
+        </div>
+
+        <button type="submit" class="btn btn-primary" >Editar</button>
+    </form>
+    <br/>
+    <br/>
+    <button type="button" class="btn"><a href="@{Application.index()}">Volver</a></button>
+
+
+
+</div>
