@@ -1,0 +1,79 @@
+#{extends 'main.html'/}
+<div class="container">
+    <form action="" method="post" role="form">
+        <legend>Persona</legend>
+
+        <div class="form-group col-lg-3">
+            <label for="rut">RUT</label>
+            <input type="text" class="form-control" name="rut" id="rut" placeholder="12.345.678-9">
+        </div>
+
+        <div class="form-group col-lg-9">
+            <label for="nombres">Nombres</label>
+            <input type="text" class="form-control" name="nombres" id="nombres" placeholder="">
+        </div>
+        <div class="form-group col-lg-6">
+            <label for="apellidoPaterno">Apellido Paterno</label>
+            <input type="text" class="form-control" name="apellidoPaterno" id="apellidoPaterno" placeholder="">
+        </div>
+        <div class="form-group col-lg-6">
+            <label for="apellidoMaterno">Apellido Materno</label>
+            <input type="text" class="form-control" name="apellidoMaterno" id="apellidoMaterno" placeholder="">
+        </div>
+
+        <div class="form-group col-lg-6">
+
+            <label for="genero">Genero</label>
+            <select name="genero" id="inputID" class="form-control">
+                <option value=""> -- Select One -- </option>
+                <option value="0"> -- Masculino -- </option>
+                <option value="1"> -- Femenino -- </option>
+            </select>
+
+        </div>
+        <div class="form-group col-lg-6">
+            <label for="fechaNacimiento">Fecha Nacimiento</label>
+            <input type="text" class="form-control" name="fechaNacimiento" id="fechaNacimiento" placeholder="">
+        </div>
+        <div class="form-group col-lg-4">
+            <label for="pais">Pais</label>
+            <select name="pais" id="inputID" class="form-control">
+                <option value=""> -- Select One -- </option>
+            </select>
+        </div>
+        <div class="form-group col-lg-4">
+            <label for="region">Region</label>
+            <select name="region" id="inputID" class="form-control">
+                <option value=""> -- Select One -- </option>
+            </select>
+        </div>
+        <div class="form-group col-lg-4">
+            <label for="provincia" >Provincia</label>
+            <select name="provincia" id="inputID" class="form-control">
+                <option value=""> -- Select One -- </option>
+            </select>
+        </div>
+        <div class="form-group col-lg-4">
+            <label for="comuna" >Comuna</label>
+            <select name="comuna" id="inputID" class="form-control">
+                <option value=""> -- Select One -- </option>
+            </select>
+        </div>
+
+        <div class="form-group col-lg-8">
+            <label for="direccion">Direccion</label>
+            <input type="text" class="form-control" name="direccion" id="direccion" placeholder="">
+        </div>
+        <div class="form-group col-lg-6">
+            <label for="telefono">Telefono</label>
+            <input type="text" class="form-control" name="telefono" id="telefono" placeholder="">
+        </div>
+        <div class="form-group col-lg-6">
+            <label for="celular">Celular</label>
+            <input type="text" class="form-control" name="celular" id="celular" placeholder="">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <button type="button" class="btn"><a href="@{Application.index()}">Volver</a></button>
+</div>
