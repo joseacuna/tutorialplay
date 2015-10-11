@@ -11,11 +11,13 @@ public class Application extends Controller {
 
     public static void index() {
 
-        List<Pais> paises = Pais.findAllPais();
 
-        render(paises);
+        render();
     }
 
-    public static void formularioPersona(){render();}
+    public static void formularioPersona(){
+        List<Pais> paises = Pais.findAllPais();
+
+        render(paises);}
 
 }
