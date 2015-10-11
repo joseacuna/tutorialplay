@@ -65,4 +65,5 @@ public class Pais  extends Model{
         List<Pais> allPaises = JPA.em().createQuery("select p FROM Pais p").getResultList();
         return allPaises;
     }
+
 }

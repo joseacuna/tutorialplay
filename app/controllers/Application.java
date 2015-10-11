@@ -24,5 +24,14 @@ public class Application extends Controller {
         List<Region> regiones = Region.findAllRegionesByIdPais(id_pais);
         renderJSON(regiones);
     }
+    public static void getProvincias(Long id_region){
+        List<Provincia> provincias = Provincia.findAllProvinciasByIdRegiones(id_region);
+        renderJSON(provincias);
+    };
+
+    public static void getComunas(Long id_provincia){
+        List<Comuna> comunas = Comuna.findAllComunasByIdProvincias(id_provincia);
+        renderJSON(comunas);
+    }
 
 }
