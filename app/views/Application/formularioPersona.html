@@ -37,7 +37,7 @@
         </div>
         <div class="form-group col-lg-4">
             <label for="pais">Pais</label>
-            <select name="pais" id="inputID" class="form-control">
+            <select name="pais" id="pais" class="form-control">
                 <option value="">Seleccione..</option>
                 #{list items:paises,as:'p'}
                     <option value="${p.id}">${p.nombre} </option>
@@ -47,8 +47,7 @@
         </div>
         <div class="form-group col-lg-4">
             <label for="region">Region</label>
-            <select name="region" id="inputID" class="form-control">
-                <option value=""> -- Select One -- </option>
+            <select name="region" id="region" class="form-control">
             </select>
         </div>
         <div class="form-group col-lg-4">
@@ -79,5 +78,35 @@
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
+    <br/>
+    <br/>
+
     <button type="button" class="btn"><a href="@{Application.index()}">Volver</a></button>
 </div>
+
+<script type="text/javascript">
+    $(function(){
+        var $pais = $("#pais");
+        var $regiones = $("#region");
+        $pais.change(function(){
+            $.ajax({
+                url:"@{Application.getRegiones()}",
+                type:"POST",
+                dataType:"json",
+                data:{id_pais:$("#pais").val()},
+                success:function(resp){
+                    $regiones.empty();
+                    $regiones.append($('<option>').text("Seleccione..").attr('value', ''));
+                    $.each(resp, function (k, value) {
+                        $regiones.append($('<option>').text(value.nombre).attr('value', value.id));
+                    });
+                },
+                error:function(error){
+                    alert("Error");
+
+                }
+            });
+        });
+    });
+</script>

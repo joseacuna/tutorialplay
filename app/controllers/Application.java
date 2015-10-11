@@ -20,4 +20,9 @@ public class Application extends Controller {
 
         render(paises);}
 
+    public static void getRegiones(Long id_pais){
+        List<Region> regiones = Region.findAllRegionesByIdPais(id_pais);
+        renderJSON(regiones);
+    }
+
 }
