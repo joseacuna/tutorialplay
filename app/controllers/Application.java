@@ -10,7 +10,10 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-        render();
+
+        List<Pais> paises = Pais.findAllPais();
+
+        render(paises);
     }
 
     public static void formularioPersona(){render();}
