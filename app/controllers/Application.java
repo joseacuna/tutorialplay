@@ -1,6 +1,8 @@
 package controllers;
 
 import play.*;
+import play.data.binding.As;
+import play.db.jpa.JPA;
 import play.mvc.*;
 
 import java.util.*;
@@ -21,7 +23,8 @@ public class Application extends Controller {
 
     public static void formularioEditarPersona(String altKey){
         Persona persona =Persona.findPersonaByAltKey(altKey);
-        render(persona);
+        List<Pais> paises = Pais.findAllPais();
+        render(persona,paises);
     }
 
     public static void getRegiones(Long id_pais){
@@ -38,7 +41,12 @@ public class Application extends Controller {
         renderJSON(comunas);
     }
 
-    public static void guardarPersona(Persona persona){
+    public static void guardarPersona(Persona persona,@As("dd-MM-yyyy") Date fechaNacimiento,Long pais,Long region,Long provincia,Long comuna){
+        persona.setPais(JPA.em().getReference(Pais.class, pais));
+        persona.setRegion(JPA.em().getReference(Region.class, region));
+        persona.setProvincia(JPA.em().getReference(Provincia.class, provincia));
+        persona.setComuna(JPA.em().getReference(Comuna.class, comuna));
+        persona.setFechaNacimiento(fechaNacimiento);
         persona.save();
         index();
     }
