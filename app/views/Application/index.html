@@ -21,7 +21,7 @@
             <td>${persona.rut}</td>
             <td>${persona.nombreCompleto}</td>
             <td>
-				<a href="#">borrar</a><br/>
+				<a href="@{Application.eliminarPersona(persona.altKey)}">borrar</a><br/>
                 <a href="@{Application.formularioEditarPersona(persona.altKey)}">editar</a>
 			</td>
         </tr>

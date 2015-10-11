@@ -43,4 +43,11 @@ public class Application extends Controller {
         index();
     }
 
+    public static void eliminarPersona(String altKey){
+        Persona persona = Persona.findPersonaByAltKey(altKey);
+        persona.delete();
+        index();
+
+    }
+
 }
