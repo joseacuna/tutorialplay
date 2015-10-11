@@ -88,6 +88,71 @@
     <br/>
     <button type="button" class="btn"><a href="@{Application.index()}">Volver</a></button>
 
-
-
 </div>
+
+<script type="text/javascript">
+    $(function(){
+        var $pais = $("#pais");
+        var $regiones = $("#region");
+        var $provincias = $("#provincia");
+        var $comunas = $("#comuna");
+
+        $pais.change(function(){
+            $.ajax({
+                url:"@{Application.getRegiones()}",
+                type:"POST",
+                dataType:"json",
+                data:{id_pais:$("#pais").val()},
+                success:function(resp){
+                    $regiones.empty();
+                    $regiones.append($('<option>').text("Seleccione..").attr('value', ''));
+                    $.each(resp, function (k, value) {
+                        $regiones.append($('<option>').text(value.nombre).attr('value', value.id));
+                    });
+                },
+                error:function(error){
+                    alert("Error");
+
+                }
+            });
+        });
+
+        $regiones.change(function(){
+            $.ajax({
+                url:"@{Application.getProvincias()}",
+                type:"POST",
+                dataType:"json",
+                data:{id_region:$("#region").val()},
+                success:function(resp){
+                    $provincias.empty();
+                    $provincias.append($('<option>').text("Seleccione..").attr('value',''));
+                    $.each(resp,function(k,value){
+                        $provincias.append($('<option>').text(value.nombre).attr('value',value.id));
+                    });
+                },
+                error:function(error){
+                    alert("Error");
+                }
+            });
+        });
+
+        $provincias.change(function(){
+            $.ajax({
+                url:"@{Application.getComunas()}",
+                type:"POST",
+                dataType:"json",
+                data:{id_provincia:$("#provincia").val()},
+                success:function(resp){
+                    $comunas.empty();
+                    $comunas.append($('<option>').text("Seleccione..").attr('value',''));
+                    $.each(resp,function(k,value){
+                        $comunas.append($('<option>').text(value.nombre).attr('value',value.id));
+                    });
+                },
+                error:function(error){
+                    alert("Error");
+                }
+            });
+        });
+    });
+</script>
