@@ -23,13 +23,13 @@ public class Persona extends EntidadIdAutoLongAltKey {
     @Temporal(TemporalType.TIMESTAMP)
     public Date fechaNacimiento;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     public Comuna comuna;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     public Provincia provincia;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     public Region region;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     public Pais pais;
 
     public String getNombres() {
@@ -102,5 +102,9 @@ public class Persona extends EntidadIdAutoLongAltKey {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getNombreCompleto(){
+        return nombres+' '+apellidoPaterno+' '+apellidoMaterno;
     }
 }

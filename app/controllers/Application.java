@@ -10,9 +10,8 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-
-
-        render();
+        List<Persona> personas = Persona.findAll();
+        render(personas);
     }
 
     public static void formularioPersona(){
@@ -27,11 +26,16 @@ public class Application extends Controller {
     public static void getProvincias(Long id_region){
         List<Provincia> provincias = Provincia.findAllProvinciasByIdRegiones(id_region);
         renderJSON(provincias);
-    };
+    }
 
     public static void getComunas(Long id_provincia){
         List<Comuna> comunas = Comuna.findAllComunasByIdProvincias(id_provincia);
         renderJSON(comunas);
+    }
+
+    public static void guardarPersona(Persona persona){
+        persona.save();
+        index();
     }
 
 }

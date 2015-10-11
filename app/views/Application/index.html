@@ -5,7 +5,6 @@
 
 <ul>
     <li><a href="@{Application.formularioPersona()}">Crear Persona</a></li>
-    <li><a href="#">Actualizar Persona</a></li>
 </ul>
 <br/>
 <table class="table table-hover">
@@ -13,13 +12,19 @@
 		<tr>
 			<th>Rut</th>
             <th>Nombre</th>
-            <th>email</th>
             <th>Acciones</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td></td>
-		</tr>
+		#{list items:personas,as:'persona'}
+        <tr>
+            <td>${persona.rut}</td>
+            <td>${persona.nombreCompleto}</td>
+            <td>
+				<a href="#">borrar</a><br/>
+                <a href="#">editar</a>
+			</td>
+        </tr>
+		#{/list}
 	</tbody>
 </table>

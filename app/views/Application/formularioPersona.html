@@ -1,6 +1,6 @@
 #{extends 'main.html'/}
 <div class="container">
-    <form action="" method="post" role="form">
+    <form action="@{Application.guardarPersona()}" method="post" role="form">
         <legend>Persona</legend>
 
         <div class="form-group col-lg-3">
@@ -89,6 +89,9 @@
     $(function(){
         var $pais = $("#pais");
         var $regiones = $("#region");
+        var $provincias = $("#provincia");
+        var $comunas = $("#comuna");
+
         $pais.change(function(){
             $.ajax({
                 url:"@{Application.getRegiones()}",
@@ -108,13 +111,7 @@
                 }
             });
         });
-    });
-</script>
 
-<script type="text/javascript">
-    $(function(){
-        var $regiones = $("#region");
-        var $provincias = $("#provincia");
         $regiones.change(function(){
             $.ajax({
                 url:"@{Application.getProvincias()}",
@@ -133,13 +130,7 @@
                 }
             });
         });
-    });
-</script>
 
-<script type="text/javascript">
-    $(function(){
-        var $provincias = $("#provincia");
-        var $comunas = $("#comuna");
         $provincias.change(function(){
             $.ajax({
                 url:"@{Application.getComunas()}",
