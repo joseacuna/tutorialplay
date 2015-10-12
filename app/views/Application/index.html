@@ -23,7 +23,10 @@
             <td>
 				<a href="@{Application.eliminarPersona(persona.altKey)}">borrar</a><br/>
                 <a href="@{Application.formularioEditarPersona(persona.altKey)}">editar</a>
+                <a href="@{Application.formCrearUsuario(persona.altKey)}">crear usuario</a>
+                <a href="@{Application.formEditarUsuario(persona.altKey)}">editar usuario</a>
 			</td>
+
         </tr>
 		#{/list}
 	</tbody>

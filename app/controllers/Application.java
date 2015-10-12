@@ -58,4 +58,28 @@ public class Application extends Controller {
 
     }
 
+    public static void formCrearUsuario(String altkey){
+        Persona persona = Persona.findPersonaByAltKey(altkey);
+        render(persona);
+    }
+    public static void guardarUsuario(Usuario usser,String altKeyPersona){
+        Persona persona = Persona.findPersonaByAltKey(altKeyPersona);
+        usser.setPersona(persona);
+        usser.save();
+        index();
+
+
+    }
+
+    public static void formEditarUsuario(String altKey){
+        Usuario usser=Usuario.findUsuarioByAltKeyPersona(altKey);
+        //Usuario usser=Usuario.findUsuarioByAltKey(altKey);
+
+        render(usser);
+
+
+    }
+
+
+
 }
