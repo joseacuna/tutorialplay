@@ -65,7 +65,7 @@ public class Usuario extends EntidadIdAutoLongAltKey{
     public static Usuario findUsuarioByAltKeyPersona(String altKey) {
 
         try{
-            Usuario usuario= JPA.em().createQuery("select us FROM Usuario us inner join Persona per on us.persona.id = per.id where per.altKey=?1",Usuario.class).setParameter(1,altKey).getSingleResult();
+            Usuario usuario= JPA.em().createQuery("select us FROM Usuario us where us.persona.altKey=?1",Usuario.class).setParameter(1,altKey).getSingleResult();
             return usuario;
         }catch (NoResultException e){
             return null;

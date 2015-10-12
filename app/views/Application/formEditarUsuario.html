@@ -2,21 +2,21 @@
 
 <div class="container">
 
-    <form action="@{Application.guardarUsuario()}" method="post" role="form">
+    <form action="@{Application.guardarUsuarioModificado()}" method="post" role="form">
         <legend>Crear Usuario</legend>
-        <h2>Para ${persona.getNombreCompleto()}</h2>
-        <input type="hidden" name="altKeyPersona" value="${persona.altKey}"/>
+        <h2>Para ${usser.persona.nombreCompleto}</h2>
+        <input type="hidden" name="usuario.altKey" value="${usser.altKey}"/>
         <div class="form-group">
             <label for="usuario">Usuario</label>
-            <input type="text" class="form-control" name="usser.usuario" value="${usser.usuario}" id="usuario" placeholder="User">
+            <input type="text" class="form-control" name="usuario.usuario" value="${usser.usuario}" id="usuario" placeholder="User">
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" class="form-control" name="usser.email" value="${usser.email}" id="email" placeholder="Email">
+            <input type="text" class="form-control" name="usuario.email" value="${usser.email}" id="email" placeholder="Email">
         </div>
         <div class="form-group">
             <label for="password">Contraseña</label>
-            <input type="text" class="form-control" name="usser.password" value="${usser.password}" id="password" >
+            <input type="text" class="form-control" name="usuario.password" value="${usser.password}" id="password" >
         </div>
 
 

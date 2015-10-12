@@ -67,14 +67,19 @@ public class Application extends Controller {
         usser.setPersona(persona);
         usser.save();
         index();
+    }
 
-
+    public static void guardarUsuarioModificado(Usuario usuario){
+        Usuario usuarioDB = Usuario.findUsuarioByAltKey(usuario.altKey);
+        usuarioDB.setUsuario(usuario.getUsuario());
+        usuarioDB.setPassword(usuario.getPassword());
+        usuarioDB.setEmail(usuario.getEmail());
+        usuarioDB.save();
+        index();
     }
 
     public static void formEditarUsuario(String altKey){
         Usuario usser=Usuario.findUsuarioByAltKeyPersona(altKey);
-        //Usuario usser=Usuario.findUsuarioByAltKey(altKey);
-
         render(usser);
 
 
